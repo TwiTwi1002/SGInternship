@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Calculator</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#f2f2f2;
+    }
+
+    .calculator{
+      width:450px;
+      background:white;
+      padding:25px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      text-align:center;
+      margin-bottom:20px;
+    }
+
+    .input-group{
+      display:flex;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    input,
+    select{
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:5px;
+      font-size:16px;
+    }
+
+    input{
+      width:150px;
+    }
+
+    select{
+      width:60px;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      background:rgb(133, 133, 228);
+      color:white;
+      border:none;
+      border-radius:5px;
+      font-size:16px;
+      cursor:pointer;
+      margin-bottom:20px;
+    }
+
+    .result-box{
+      border:1px solid #ddd;
+      padding:15px;
+      border-radius:5px;
+      display:flex;
+      justify-content:space-between;
+      font-weight:bold;
+    }
+
+    #result{
+      color:rgb(37, 25, 86);
+      font-size:22px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="calculator">
+
+    <h2>Mini Calculator</h2>
+
+    <div class="input-group">
+
+      <input type="number" id="num1" placeholder="First Number">
+
+      <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+
+      <input type="number" id="num2" placeholder="Second Number">
+
+    </div>
+
+    <button onclick="calculate()">
+      Calculate Amount
+    </button>
+
+    <div class="result-box">
+      <span>Result :</span>
+      <span id="result">0</span>
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function calculate(){
+
+      let num1 = Number(document.getElementById("num1").value);
+
+      let num2 = Number(document.getElementById("num2").value);
+
+      let operator = document.getElementById("operator").value;
+
+      let result = 0;
+
+      switch(operator){
+
+        case "+":
+          result = num1 + num2;
+          break;
+
+        case "-":
+          result = num1 - num2;
+          break;
+
+        case "*":
+          result = num1 * num2;
+          break;
+
+        case "/":
+          result = num1 / num2;
+          break;
+
+        
+      }
+
+      document.getElementById("result").innerText = result;
+
+    }
+
+  </script>
+
+</body>
+</html>

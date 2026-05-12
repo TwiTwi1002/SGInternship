@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone Calculator</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: antiquewhite;
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+      .calculator {
+        width: 340px;
+        background-color: aliceblue;
+        border-radius: 30px;
+        padding: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .display {
+        width: 100%;
+        height: 100px;
+        font-size: 3rem;
+        color: #1c3776;
+        text-align: right;
+        border: none;
+        background: transparent;
+        outline: none;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 20px;
+      }
+      button {
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: none;
+        background-color: #e4e9f0;
+        color: #1c3776;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      button:active {
+        opacity: 0.7;
+      }
+      .coral {
+        color: #e55d72;
+      }
+      .equal {
+        background-color: #e55d72;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" class="display" id="screen" value="0" readonly />
+
+      <div class="grid">
+        <button class="coral" onclick="clearScreen()">C</button>
+        <button class="coral" onclick="backspace()">Del</button>
+        <button onclick="press('%')">%</button>
+        <button onclick="press('/')">÷</button>
+
+        <button onclick="press('7')">7</button>
+        <button onclick="press('8')">8</button>
+        <button onclick="press('9')">9</button>
+        <button onclick="press('*')">*</button>
+
+        <button onclick="press('4')">4</button>
+        <button onclick="press('5')">5</button>
+        <button onclick="press('6')">6</button>
+        <button onclick="press('-')">-</button>
+
+        <button onclick="press('1')">1</button>
+        <button onclick="press('2')">2</button>
+        <button onclick="press('3')">3</button>
+        <button onclick="press('+')">+</button>
+
+        <button onclick="press('()')">()</button>
+        <button onclick="press('0')">0</button>
+        <button onclick="press('.')">.</button>
+        <button class="equal" onclick="calculate()">=</button>
+      </div>
+    </div>
+
+    <script>
+      let screen = document.getElementById("screen");
+      function press(value) {
+        if (screen.value === "0" || screen.value === "Error") {
+          screen.value = value;
+        } else {
+          screen.value += value;
+        }
+      }
+      function clearScreen() {
+        screen.value = "0";
+      }
+
+      function backspace() {
+        screen.value = screen.value.slice(0, -1);
+        if (screen.value === "") screen.value = "0";
+      }
+
+      function calculate() {
+        try {
+          screen.value = eval(screen.value);
+        } catch (e) {
+          screen.value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>

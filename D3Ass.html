@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f3f5f9;
+      padding: 30px;
+    }
+
+    .container {
+      width: 90%;
+      margin: auto;
+    }
+
+    /* Header */
+    .navbar {
+      background: #2a460e;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    /* Feature Boxes */
+    .features {
+      display: flex;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .feature-box {
+      flex: 1;
+      background: #8eac7e;
+      padding: 25px;
+      text-align: center;
+      border-radius: 6px;
+    }
+
+
+    .main {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Left */
+    .controls {
+      flex: 1;
+      background: rgb(208, 229, 180);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .controls h3 {
+      margin-bottom: 20px;
+    }
+
+    .controls label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    .controls select {
+      width: 100%;
+      padding: 10px;
+    }
+
+    /* Right  */
+    .preview {
+      flex: 1;
+      background: #c9e7b9;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .card {
+      background: #4c7204;
+      color: white;
+      padding: 25px;
+      width: 250px;
+
+    }
+
+    .card h4 {
+      margin-bottom: 10px;
+    }
+
+    /* Buttons */
+    .buttons {
+      margin-top: 25px;
+    }
+
+    .buttons button {
+      background: #4c7204;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      background: #95a7d9;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>CSS Utility Simulator</h1>
+    <p>
+      Change the inputs below to see how automatic classes combine to build UIs.
+    </p>
+  </div>
+
+  <div class="container">
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <h2>MyLogo</h2>
+
+      <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+
+    <!-- Feature Boxes -->
+    <div class="features">
+      <div class="feature-box">Feature 1</div>
+      <div class="feature-box">Feature 2</div>
+      <div class="feature-box">Feature 3</div>
+    </div>
+
+    <!-- Main Section -->
+    <div class="main">
+
+      <!-- Left -->
+      <div class="controls">
+        <h3>Utility Controls</h3>
+
+        <label>Padding (Spacing)</label>
+        <select>
+          <option>Medium (p-6)</option>
+        </select>
+
+        <label>Background Theme</label>
+        <select>
+          <option>Primary Blue</option>
+        </select>
+
+        <label>Text Size</label>
+        <select>
+          <option>Large</option>
+        </select>
+
+        <label>Corner Radius</label>
+        <select>
+          <option>Square</option>
+        </select>
+
+        <label>Shadow</label>
+        <select>
+          <option>Medium</option>
+        </select>
+
+        <div class="buttons">
+          <button>Submit</button>
+          <button>Hover Me Slowly!</button>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="preview">
+        <div class="card">
+          <h4>Alex Walker</h4>
+          <p>
+            Full-Stack Web Developer building awesome things with Tailwind CSS.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
