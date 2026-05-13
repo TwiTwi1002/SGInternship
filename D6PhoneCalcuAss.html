@@ -38,6 +38,7 @@
         outline: none;
         box-sizing: border-box;
         padding: 10px;
+        font-size: 2.5rem;
       }
       .grid {
         display: grid;
@@ -63,6 +64,9 @@
       .equal {
         background-color: #e55d72;
         color: white;
+      }
+      .calculate {
+        font-size: small;
       }
     </style>
   </head>
@@ -91,7 +95,8 @@
         <button onclick="press('3')">3</button>
         <button onclick="press('+')">+</button>
 
-        <button onclick="press('()')">()</button>
+        <button onclick="press('(')">(</button>
+        <button onclick="press(')')">)</button>
         <button onclick="press('0')">0</button>
         <button onclick="press('.')">.</button>
         <button class="equal" onclick="calculate()">=</button>
@@ -101,6 +106,12 @@
     <script>
       let screen = document.getElementById("screen");
       function press(value) {
+        if (value === ".") {
+          if (!screen.value.includes(".")) {
+            screen.value += value;
+          }
+          return;
+        }
         if (screen.value === "0" || screen.value === "Error") {
           screen.value = value;
         } else {
@@ -118,13 +129,16 @@
 
       function calculate() {
         try {
-          screen.value = eval(screen.value);
+          let result = eval(screen.value);
+          if (result === Infinity || result === -Infinity) {
+            screen.value = "can't calculate";
+            return;
+          }
+          screen.value = result;
         } catch (e) {
-          screen.value = "Error";
+          screen.value = "can't calculate";
         }
       }
-
-      
     </script>
   </body>
 </html>
